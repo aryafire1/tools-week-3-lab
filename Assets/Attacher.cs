@@ -27,10 +27,17 @@ public class AttacherEditor : Editor
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
 
+        EditorGUILayout.BeginHorizontal();
+
         if (GUILayout.Button("Select all")) {
             var allButtonEditor = GameObject.FindObjectsOfType<Attacher>();
             Selection.objects = allButtonEditor;
         }
+        if (GUILayout.Button("Clear selection")) {
+            Selection.objects = new Object[] { (target as Attacher).gameObject };
+        }
+
+        EditorGUILayout.EndHorizontal();
     }
 }
 
