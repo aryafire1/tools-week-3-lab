@@ -38,6 +38,17 @@ public class AttacherEditor : Editor
         }
 
         EditorGUILayout.EndHorizontal();
+
+        using (new EditorGUILayout.HorizontalScope()) {
+
+        if (GUILayout.Button("Disable/Enable all", GUILayout.Height(40))) {
+            foreach (var obj in GameObject.FindObjectsOfType<Attacher>(true)) {
+                obj.gameObject.SetActive(!obj.gameObject.activeSelf);
+            }
+        }
+
+        }
+        
     }
 }
 
