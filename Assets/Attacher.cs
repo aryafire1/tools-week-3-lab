@@ -24,6 +24,9 @@ public class Attacher : MonoBehaviour
 [CustomEditor(typeof(Attacher)), CanEditMultipleObjects]
 public class AttacherEditor : Editor
 {
+    float sizeMultiplier = 1.0f;
+
+    [MenuItem("Examples/Scale selected Object")]
     public override void OnInspectorGUI() {
         base.OnInspectorGUI();
 
@@ -47,6 +50,16 @@ public class AttacherEditor : Editor
             }
         }
 
+        }
+        
+        sizeMultiplier = EditorGUILayout.FloatField("Set Scale:", sizeMultiplier);
+
+        if(sizeMultiplier<=2 && sizeMultiplier >=1)
+        {
+            
+        }
+        else{
+            EditorGUILayout.HelpBox("Must be smaller than 2 and bigger than 1", MessageType.Warning);
         }
         
     }
